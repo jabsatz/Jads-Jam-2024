@@ -1,24 +1,74 @@
 extends Control
 
-@onready var goldLabel: Label = %GoldLabel
+@onready var gold_label: Label = %GoldLabel
+@onready var info_container : Control = %InfoContainer
+@onready var info_title_label : Label = %InfoTitleLabel
+@onready var info_texture_rect : TextureRect = %InfoTextureRect
+@onready var info_rich_text_label: RichTextLabel = %InfoRichTextLabel
+@onready var info_action_buttons_container : Control = %InfoActionButtonsContainer
+var resource_to_display = null
+var info_is_pinned := false
 
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	pass  # Replace with function body.
+func _ready():
+	GameManager.ui = self
+	info_container.visible = false
 
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	goldLabel.text = "%.2f" % GameManager.game_scene.gold
+	gold_label.text = "%.2f" % GameManager.game_scene.gold
+	if resource_to_display:
+		show_info(resource_to_display.get_title(), resource_to_display.get_image(), resource_to_display.get_description(), true)
+	if info_is_pinned:
+		var action_buttons_data = resource_to_display.get_action_buttons()
+		for button in info_action_buttons_container.get_children():
+			var action_button_data = action_buttons_data.filter(func(d): return d["title"] == button.text).pop_front()
+			if action_button_data and action_button_data.has("disabled"):
+				button.disabled = action_button_data["disabled"]
+
+func show_resource(resource):
+	resource_to_display = resource
+
+func show_info(title: String, image: Texture2D, description: String, keep_resource := false) -> void:
+	info_container.visible = true
+	if not keep_resource:
+		resource_to_display = null
+	info_title_label.text = title
+	info_texture_rect.texture = image
+	info_rich_text_label.text = description
+
+func action_button_pressed():
+	remove_action_buttons()
+	show_action_buttons()
 
 
-func _on_truck_button_pressed() -> void:
-	pass  # Replace with function body.
+func show_action_buttons():
+	var action_buttons_data = resource_to_display.get_action_buttons()
+	for action_button_data in action_buttons_data:
+		var button = Button.new()
+		button.text = action_button_data["title"]
+		if action_button_data.has("disabled"):
+			button.disabled = action_button_data["disabled"]
+		if action_button_data.has("tooltip"):
+			button.tooltip_text = action_button_data["tooltip"]
+		button.pressed.connect(action_button_data["action"])
+		button.pressed.connect(action_button_pressed)
+		info_action_buttons_container.add_child(button)
 
+func remove_action_buttons():
+	for child in info_action_buttons_container.get_children():
+		child.queue_free()
 
-func _on_worker_button_pressed() -> void:
-	pass  # Replace with function body.
+func hide_info():
+	if info_is_pinned:
+		return
+	remove_action_buttons()
+	resource_to_display = null
+	info_container.visible = false
 
+func pin_resource(resource):
+	info_is_pinned = true
+	show_resource(resource)
+	show_action_buttons()
 
-func _on_mine_button_pressed() -> void:
-	pass  # Replace with function body.
+func unpin_info():
+	info_is_pinned = false
+	hide_info()

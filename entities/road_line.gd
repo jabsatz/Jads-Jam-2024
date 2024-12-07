@@ -29,6 +29,14 @@ func add_vehicle(vehicle: Vehicle):
 	path.add_child(path_follow)
 	path_follow.add_child(vehicle.node)
 
+func remove_vehicle(_vehicle: Vehicle):
+	for path_follow : PathFollow2D in path.get_children():
+		var vehicle_node = path_follow.get_child(0)
+		var vehicle : Vehicle = vehicle_node.resource
+		if vehicle == _vehicle:
+			_vehicle.cargo_load = 0.0
+			path_follow.queue_free()
+
 func process_vehicles():
 	for path_follow : PathFollow2D in path.get_children():
 		var vehicle_node = path_follow.get_child(0)
