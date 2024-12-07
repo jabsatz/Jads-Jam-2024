@@ -1,0 +1,63 @@
+[gd_scene load_steps=3 format=3 uid="uid://ci58ssl7ormwt"]
+
+[ext_resource type="Script" path="res://scenes/ui.gd" id="1_v2c5r"]
+[ext_resource type="Texture2D" uid="uid://bkqsfptsq42i5" path="res://assets/coin_64.svg" id="2_gjpbw"]
+
+[node name="UI" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_v2c5r")
+metadata/_edit_lock_ = true
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="MarginContainer"]
+layout_mode = 2
+size_flags_vertical = 0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/PanelContainer"]
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_constants/separation = 10
+
+[node name="TextureRect4" type="TextureRect" parent="MarginContainer/PanelContainer/HBoxContainer"]
+custom_minimum_size = Vector2(0, 64)
+layout_mode = 2
+texture = ExtResource("2_gjpbw")
+expand_mode = 2
+stretch_mode = 5
+
+[node name="GoldLabel" type="Label" parent="MarginContainer/PanelContainer/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "5"
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="MarginContainer/PanelContainer"]
+layout_mode = 2
+alignment = 2
+
+[node name="MineButton" type="Button" parent="MarginContainer/PanelContainer/HBoxContainer2"]
+layout_mode = 2
+text = "Manage Mines"
+
+[node name="WorkerButton" type="Button" parent="MarginContainer/PanelContainer/HBoxContainer2"]
+layout_mode = 2
+text = "Manage Workers"
+
+[node name="TruckButton" type="Button" parent="MarginContainer/PanelContainer/HBoxContainer2"]
+layout_mode = 2
+text = "Manage Trucks"
+
+[connection signal="pressed" from="MarginContainer/PanelContainer/HBoxContainer2/MineButton" to="." method="_on_mine_button_pressed"]
+[connection signal="pressed" from="MarginContainer/PanelContainer/HBoxContainer2/WorkerButton" to="." method="_on_worker_button_pressed"]
+[connection signal="pressed" from="MarginContainer/PanelContainer/HBoxContainer2/TruckButton" to="." method="_on_truck_button_pressed"]

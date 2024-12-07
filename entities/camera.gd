@@ -16,14 +16,14 @@ var mousePos := Vector2()
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass # Replace with function body.
+	GameManager.camera = self
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	var input := Vector2(Input.get_axis("CameraLeft", "CameraRight"), Input.get_axis("CameraUp", "CameraDown"))
 
-	position = lerp(position, position + input*SPEED * zoom, SPEED * delta)
+	position = lerp(position, position + input * SPEED, SPEED * delta)
 
 	zoom = lerp(zoom, zoom * zoomFactor, ZOOM_SPEED*delta)
 	zoom = clamp(zoom, Vector2(ZOOM_MIN, ZOOM_MIN), Vector2(ZOOM_MAX, ZOOM_MAX))

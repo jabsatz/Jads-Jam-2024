@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Worker" load_steps=3 format=3 uid="uid://dd4es8mljo8wo"]
+
+[ext_resource type="Texture2D" uid="uid://pm8jdewi8ivj" path="res://assets/worker.svg" id="1_2a3u1"]
+[ext_resource type="Script" path="res://resources/worker.gd" id="1_fsrue"]
+
+[resource]
+script = ExtResource("1_fsrue")
+name = "Miner"
+speed = 0.2
+icon = ExtResource("1_2a3u1")
