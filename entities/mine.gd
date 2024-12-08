@@ -33,14 +33,8 @@ func process_mine():
 			worker.progress -= 1.0
 			mine.storage += mine.gold_yield
 
-	mine.road.process_vehicles()
-
 	for vehicle in mine.vehicles:
 		match vehicle.status:
-			'idle':
-				vehicle.status = 'going'
-				vehicle.progress = 0.0
-				mine.road.add_vehicle(vehicle)
 			'loading':
 				var amount_to_load = min(
 					vehicle.loading_speed, mine.storage, vehicle.capacity - vehicle.cargo_load

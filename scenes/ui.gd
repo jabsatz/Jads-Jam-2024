@@ -1,6 +1,11 @@
 extends Control
 
 @onready var gold_label: Label = %GoldLabel
+@onready var workers_label : Label = %WorkersLabel
+@onready var worker_button : Button = %WorkerButton
+@onready var vehicles_label : Label = %VehiclesLabel
+@onready var vehicle_button : Button = %VehicleButton
+
 @onready var info_container : Control = %InfoContainer
 @onready var info_title_label : Label = %InfoTitleLabel
 @onready var info_texture_rect : TextureRect = %InfoTextureRect
@@ -12,9 +17,25 @@ var info_is_pinned := false
 func _ready():
 	GameManager.ui = self
 	info_container.visible = false
+	worker_button.pressed.connect(buy_worker)
+	vehicle_button.pressed.connect(buy_vehicle)
+
+func buy_worker():
+	GameManager.game_scene.buy_worker()
+
+func buy_vehicle():
+	GameManager.game_scene.buy_vehicle()
+
 
 func _process(delta: float) -> void:
 	gold_label.text = "%.2f" % GameManager.game_scene.gold
+	workers_label.text = "%d" % GameManager.game_scene.workers.size()
+	worker_button.text = "%dG" % GameManager.game_scene.worker_price
+	worker_button.disabled = GameManager.game_scene.gold < GameManager.game_scene.worker_price 
+	vehicles_label.text = "%d" % GameManager.game_scene.vehicles.size()
+	vehicle_button.text = "%dG" % GameManager.game_scene.vehicle_price
+	vehicle_button.disabled = GameManager.game_scene.gold < GameManager.game_scene.vehicle_price 
+
 	if resource_to_display:
 		show_info(resource_to_display.get_title(), resource_to_display.get_image(), resource_to_display.get_description(), true)
 	if info_is_pinned:

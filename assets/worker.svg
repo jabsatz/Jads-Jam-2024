@@ -2,9 +2,9 @@
 <!-- Created with Inkscape (http://www.inkscape.org/) -->
 
 <svg
-   width="512"
-   height="512"
-   viewBox="0 0 512 512"
+   width="64"
+   height="64"
+   viewBox="0 0 64 64"
    version="1.1"
    id="svg5"
    inkscape:version="1.4 (86a8ad7, 2024-10-11)"
@@ -23,9 +23,9 @@
      inkscape:pagecheckerboard="0"
      inkscape:document-units="px"
      showgrid="true"
-     inkscape:zoom="1.2056723"
-     inkscape:cx="117.36191"
-     inkscape:cy="322.22686"
+     inkscape:zoom="11.313708"
+     inkscape:cx="27.753941"
+     inkscape:cy="17.987029"
      inkscape:window-width="2560"
      inkscape:window-height="1377"
      inkscape:window-x="1912"
@@ -46,70 +46,17 @@
   </sodipodi:namedview>
   <defs
      id="defs2" />
-  <rect
-     style="fill:#000000;fill-opacity:1;stroke:#ffff00;stroke-width:8;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-dashoffset:0;paint-order:normal"
-     id="rect12"
-     width="32"
-     height="48"
-     x="240"
-     y="96" />
   <g
      inkscape:label="Layer 1"
      inkscape:groupmode="layer"
      id="layer1">
-    <ellipse
-       style="fill:#000000;stroke:#ffff00;stroke-width:8;stroke-linecap:square;stroke-dasharray:24, 8"
-       id="path1"
-       cy="64"
-       cx="256"
-       rx="48"
-       ry="46.876461" />
-    <rect
-       style="fill:#000000;stroke:#ffff00;stroke-width:8;stroke-linecap:square;stroke-dasharray:24, 8"
-       id="rect5"
-       width="64"
-       height="224"
-       x="224"
-       y="128" />
-    <rect
-       style="fill:#000000;stroke:#ffff00;stroke-width:8;stroke-linecap:square;stroke-dasharray:24, 8"
-       id="rect6"
-       width="32"
-       height="144"
-       x="224"
-       y="352" />
-    <rect
-       style="fill:#000000;stroke:#ffff00;stroke-width:8;stroke-linecap:square;stroke-dasharray:24, 8"
-       id="rect7"
-       width="32"
-       height="144"
-       x="256"
-       y="352" />
-    <rect
-       style="fill:#000000;stroke:#ffff00;stroke-width:8;stroke-linecap:square;stroke-dasharray:24, 8"
-       id="rect8"
-       width="144"
-       height="32"
-       x="288"
-       y="160" />
-    <rect
-       style="fill:#000000;stroke:#ffff00;stroke-width:8;stroke-linecap:square;stroke-dasharray:24, 8"
-       id="rect9"
-       width="144"
-       height="32"
-       x="80"
-       y="160" />
-    <rect
-       style="fill:#000000;stroke:#ffff00;stroke-width:8;stroke-linecap:square;stroke-dasharray:24, 8"
-       id="rect10"
-       width="16"
-       height="160"
-       x="400"
-       y="96" />
     <path
-       id="rect11"
-       style="stroke:#ffff00;stroke-width:8;stroke-linecap:round;stroke-dasharray:none;fill:#000000;fill-opacity:1;stroke-dashoffset:0;stroke-linejoin:round;paint-order:normal;marker-end:"
-       d="m 327.52976,109.9537 c 54.90378,-54.096402 109.80758,-54.096402 164.71136,0 v 0 c -54.90378,-27.048196 -109.80758,-27.048196 -164.71136,0 z"
-       sodipodi:nodetypes="ccccc" />
+       d="m 44.677734,9.5605475 c -4.773906,0 -9.546407,2.5594125 -14.320312,7.6796865 4.282409,-0.88815 8.43682,-1.379175 12.609375,-1.478515 V 34.240234 H 46 V 15.759766 c 4.231417,0.09231 8.514504,0.583369 13,1.480468 C 54.226094,12.11996 49.45164,9.5605475 44.677734,9.5605475 Z"
+       style="fill:#ffd500;stroke:#000000;stroke-width:2;stroke-linecap:butt;stroke-linejoin:bevel;stroke-dasharray:none;stroke-opacity:1"
+       id="path13" />
+    <path
+       d="m 20.435547,3.2636725 c -5.222059,5.082e-4 -9.455099,4.2248036 -9.455078,9.4355465 0.0077,3.681248 2.160337,7.021885 5.513672,8.55664 V 62.5 h 7.884766 V 31.642578 H 47.494141 V 27.574219 H 24.378907 v -6.31836 c 3.353335,-1.534755 5.505953,-4.875392 5.513671,-8.55664 2.1e-5,-5.211504 -4.234209,-9.4361146 -9.457031,-9.4355465 z"
+       style="fill:#ffd500;stroke:#000000;stroke-width:2;stroke-linecap:square;stroke-dasharray:none;stroke-opacity:1"
+       id="path12" />
   </g>
 </svg>

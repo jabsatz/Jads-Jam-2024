@@ -8,10 +8,12 @@ extends Camera2D
 @export var ZOOM_MIN := 0.5
 @export var ZOOM_MAX := 3.0
 
-var zoomFactor := 1.0
-var zoomPos := Vector2()
+var zoom_factor := 1.0
+var zoom_pos := Vector2()
 var zooming := false
-var mousePos := Vector2()
+var mouse_start_pos : Vector2
+var screen_start_pos : Vector2
+var dragging = false
 
 
 # Called when the node enters the scene tree for the first time.
@@ -25,24 +27,34 @@ func _process(delta: float) -> void:
 
 	position = lerp(position, position + input * SPEED, SPEED * delta)
 
-	zoom = lerp(zoom, zoom * zoomFactor, ZOOM_SPEED*delta)
+	zoom = lerp(zoom, zoom * zoom_factor, ZOOM_SPEED*delta)
 	zoom = clamp(zoom, Vector2(ZOOM_MIN, ZOOM_MIN), Vector2(ZOOM_MAX, ZOOM_MAX))
 
 	if not zooming:
-		zoomFactor = 1.0
+		zoom_factor = 1.0
 
 func _input(event: InputEvent) -> void:
-	if abs(zoomPos - get_global_mouse_position()).x > ZOOM_MARGIN or abs(zoomPos - get_global_mouse_position()).y > ZOOM_MARGIN:
-		zoomFactor = 1.0
+	if abs(zoom_pos - get_global_mouse_position()).x > ZOOM_MARGIN or abs(zoom_pos - get_global_mouse_position()).y > ZOOM_MARGIN:
+		zoom_factor = 1.0
 	
-	if event is InputEventMouseButton:
+	if event.is_action("Drag"):
 		if event.is_pressed():
+			mouse_start_pos = event.position
+			screen_start_pos = position
+			dragging = true
+		else:
+			dragging = false
+	elif event is InputEventMouseMotion and dragging:
+		position = (mouse_start_pos - event.position) / zoom + screen_start_pos
+
+	if event is InputEventMouseButton:
+		if event.is_pressed() and (event.is_action("WheelDown") or event.is_action("WheelUp")):
 			zooming = true
 			if event.is_action("WheelDown"):
-				zoomFactor -= 0.01 * ZOOM_SPEED
-				zoomPos = get_global_mouse_position()
+				zoom_factor -= 0.01 * ZOOM_SPEED
+				zoom_pos = get_global_mouse_position()
 			if event.is_action("WheelUp"):
-				zoomFactor += 0.01 * ZOOM_SPEED
-				zoomPos = get_global_mouse_position()
+				zoom_factor += 0.01 * ZOOM_SPEED
+				zoom_pos = get_global_mouse_position()
 		else:
 			zooming = false

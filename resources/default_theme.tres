@@ -1,4 +1,4 @@
-[gd_resource type="Theme" load_steps=8 format=3 uid="uid://ciw1r74sd4ad2"]
+[gd_resource type="Theme" load_steps=10 format=3 uid="uid://ciw1r74sd4ad2"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mnhfo"]
 content_margin_left = 8.0
@@ -57,6 +57,12 @@ content_margin_right = 4.0
 content_margin_bottom = 4.0
 bg_color = Color(0.185987, 0.155563, 0.226563, 1)
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_o1hcd"]
+bg_color = Color(0.286275, 0.239216, 0.141176, 0.439216)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jdwo1"]
+bg_color = Color(0.886275, 0.839216, 0.137255, 0.439216)
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8l64p"]
 content_margin_left = 10.0
 content_margin_top = 28.0
@@ -82,4 +88,8 @@ Button/styles/normal = SubResource("StyleBoxFlat_aao87")
 Button/styles/pressed = SubResource("StyleBoxFlat_l52h4")
 Label/font_sizes/font_size = 24
 PanelContainer/styles/panel = SubResource("StyleBoxFlat_7ktbw")
+ProgressBar/colors/font_color = Color(0, 0, 0, 1)
+ProgressBar/font_sizes/font_size = 8
+ProgressBar/styles/background = SubResource("StyleBoxFlat_o1hcd")
+ProgressBar/styles/fill = SubResource("StyleBoxFlat_jdwo1")
 Window/styles/embedded_border = SubResource("StyleBoxFlat_8l64p")

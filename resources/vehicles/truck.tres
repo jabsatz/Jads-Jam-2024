@@ -6,7 +6,7 @@
 [resource]
 script = ExtResource("1_ev8xt")
 name = "Truck"
-speed = 5.0
+speed = 50.0
 loading_speed = 50.0
 capacity = 500.0
 icon = ExtResource("1_squgw")

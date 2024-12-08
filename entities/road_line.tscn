@@ -1,10 +1,23 @@
-[gd_scene load_steps=3 format=3 uid="uid://deamw8ush4qle"]
+[gd_scene load_steps=4 format=3 uid="uid://deamw8ush4qle"]
 
 [ext_resource type="Texture2D" uid="uid://vw68l3dgvj83" path="res://assets/road_line.svg" id="1_7ay1y"]
 [ext_resource type="Script" path="res://entities/road_line.gd" id="2_sdh1e"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_xgyjb"]
+radius = 8.0
+height = 16.0
 
 [node name="RoadLine" type="Line2D"]
 texture_repeat = 2
 texture = ExtResource("1_7ay1y")
 texture_mode = 1
 script = ExtResource("2_sdh1e")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+unique_name_in_owner = true
+shape = SubResource("CapsuleShape2D_xgyjb")
+
+[connection signal="mouse_entered" from="Area2D" to="." method="_on_area_2d_mouse_entered"]
+[connection signal="mouse_exited" from="Area2D" to="." method="_on_area_2d_mouse_exited"]

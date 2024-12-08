@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://rpnayk7oui6y"]
+[gd_scene load_steps=7 format=3 uid="uid://rpnayk7oui6y"]
 
-[ext_resource type="Texture2D" uid="uid://1cuh4bpoe8sc" path="res://assets/dragon.svg" id="1_k2w3o"]
 [ext_resource type="Script" path="res://scenes/game.gd" id="1_lcthn"]
 [ext_resource type="PackedScene" uid="uid://ci58ssl7ormwt" path="res://scenes/ui.tscn" id="2_onmeu"]
+[ext_resource type="PackedScene" uid="uid://bcomgaxf04hyg" path="res://entities/dragon.tscn" id="3_tl8el"]
 [ext_resource type="Script" path="res://entities/camera.gd" id="4_1unbt"]
 [ext_resource type="Script" path="res://scenes/background.gd" id="5_kb76u"]
+[ext_resource type="AudioStream" uid="uid://dmhaussc4j03l" path="res://assets/background.ogg" id="6_wayqo"]
 
 [node name="Game" type="Node2D"]
 texture_filter = 1
@@ -16,12 +17,8 @@ script = ExtResource("1_lcthn")
 unique_name_in_owner = true
 mouse_filter = 2
 
-[node name="Dragon" type="Sprite2D" parent="."]
+[node name="Dragon" parent="." instance=ExtResource("3_tl8el")]
 unique_name_in_owner = true
-z_index = 10
-position = Vector2(576, 320)
-scale = Vector2(0.25, 0.25)
-texture = ExtResource("1_k2w3o")
 
 [node name="TickTimer" type="Timer" parent="."]
 unique_name_in_owner = true
@@ -42,5 +39,11 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.212393, 0.410156, 0.276996, 1)
 script = ExtResource("5_kb76u")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_wayqo")
+volume_db = -4.16
+autoplay = true
+parameters/looping = true
 
 [connection signal="timeout" from="TickTimer" to="." method="_on_tick_timer_timeout"]

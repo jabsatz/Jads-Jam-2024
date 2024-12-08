@@ -14,7 +14,7 @@ var node = null
 var road = null
 
 func get_road_cost():
-	return distance * 20 
+	return int(distance) * 20 
 
 func get_title():
 	return "Mine" if active else "Mine (Inactive)"
