@@ -62,17 +62,17 @@ func _physics_process(delta):
 				vehicle.status = "unloading"
 
 
-func _on_area_2d_mouse_entered() -> void:
-	if not GameManager.ui.info_is_pinned:
-		GameManager.ui.show_info(
-			"Road",
-			RoadIcon,
-			("""This road connects the mines to the dragon.
+# func _on_area_2d_mouse_entered() -> void:
+# 	if not GameManager.ui.info_is_pinned:
+# 		GameManager.ui.show_info(
+# 			"Road",
+# 			RoadIcon,
+# 			("""This road connects the mines to the dragon.
 
-Vehicles active: [b]{vehicles}[/b]
-Length: [b]{length}km[/b]""").format({ "vehicles": "%d" % path.get_child_count(), "length": "%d" % mine.distance })
-		)
+# Vehicles active: [b]{vehicles}[/b]
+# Length: [b]{length}km[/b]""").format({ "vehicles": "%d" % path.get_child_count(), "length": "%d" % mine.distance })
+# 		)
 
-func _on_area_2d_mouse_exited() -> void:
-	if not GameManager.ui.info_is_pinned:
-		GameManager.ui.hide_info()
+# func _on_area_2d_mouse_exited() -> void:
+# 	if not GameManager.ui.info_is_pinned:
+# 		GameManager.ui.hide_info()

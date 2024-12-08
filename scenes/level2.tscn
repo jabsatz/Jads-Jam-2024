@@ -1,0 +1,50 @@
+[gd_scene load_steps=7 format=3 uid="uid://beq666c42styt"]
+
+[ext_resource type="Script" path="res://scenes/game.gd" id="1_5my1d"]
+[ext_resource type="PackedScene" uid="uid://ci58ssl7ormwt" path="res://scenes/ui.tscn" id="2_a1tr4"]
+[ext_resource type="PackedScene" uid="uid://bcomgaxf04hyg" path="res://entities/dragon.tscn" id="3_k5xyl"]
+[ext_resource type="Script" path="res://entities/camera.gd" id="4_5axjd"]
+[ext_resource type="Script" path="res://scenes/background.gd" id="5_ib7u4"]
+[ext_resource type="AudioStream" uid="uid://dmhaussc4j03l" path="res://assets/background.ogg" id="6_5cymj"]
+
+[node name="Game" type="Node2D"]
+texture_filter = 1
+script = ExtResource("1_5my1d")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="UI" parent="CanvasLayer" instance=ExtResource("2_a1tr4")]
+unique_name_in_owner = true
+mouse_filter = 2
+
+[node name="Dragon" parent="." instance=ExtResource("3_k5xyl")]
+unique_name_in_owner = true
+level = 1
+
+[node name="TickTimer" type="Timer" parent="."]
+unique_name_in_owner = true
+wait_time = 0.25
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(576, 328)
+script = ExtResource("4_5axjd")
+
+[node name="CanvasLayer2" type="CanvasLayer" parent="."]
+layer = -2
+
+[node name="Background" type="ColorRect" parent="CanvasLayer2"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.113257, 0.319902, 0.410156, 1)
+script = ExtResource("5_ib7u4")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_5cymj")
+volume_db = -4.16
+autoplay = true
+parameters/looping = true
+
+[connection signal="timeout" from="TickTimer" to="." method="_on_tick_timer_timeout"]

@@ -11,6 +11,10 @@ extends Control
 @onready var info_texture_rect : TextureRect = %InfoTextureRect
 @onready var info_rich_text_label: RichTextLabel = %InfoRichTextLabel
 @onready var info_action_buttons_container : Control = %InfoActionButtonsContainer
+
+@onready var upgrades_button : MenuButton = %UpgradesButton
+@onready var popup_menu : PopupMenu = upgrades_button.get_popup()
+
 var resource_to_display = null
 var info_is_pinned := false
 
@@ -19,6 +23,7 @@ func _ready():
 	info_container.visible = false
 	worker_button.pressed.connect(buy_worker)
 	vehicle_button.pressed.connect(buy_vehicle)
+	popup_menu.id_pressed.connect(on_upgrade_click)
 
 func buy_worker():
 	GameManager.game_scene.buy_worker()
@@ -26,15 +31,28 @@ func buy_worker():
 func buy_vehicle():
 	GameManager.game_scene.buy_vehicle()
 
+func on_upgrade_click(i: int):
+	GameManager.game_scene.execute_upgrade(i)
 
-func _process(delta: float) -> void:
-	gold_label.text = "%.2f" % GameManager.game_scene.gold
+func _process(_delta: float) -> void:
+	gold_label.text = "%d" % GameManager.game_scene.gold
 	workers_label.text = "%d" % GameManager.game_scene.workers.size()
 	worker_button.text = "%dG" % GameManager.game_scene.worker_price
 	worker_button.disabled = GameManager.game_scene.gold < GameManager.game_scene.worker_price 
 	vehicles_label.text = "%d" % GameManager.game_scene.vehicles.size()
 	vehicle_button.text = "%dG" % GameManager.game_scene.vehicle_price
-	vehicle_button.disabled = GameManager.game_scene.gold < GameManager.game_scene.vehicle_price 
+	vehicle_button.disabled = GameManager.game_scene.gold < GameManager.game_scene.vehicle_price
+
+	if GameManager.game_scene.available_upgrades.size() != popup_menu.get_child_count():
+		popup_menu.clear()
+		for i in GameManager.game_scene.available_upgrades.size():
+			var upgrade : Upgrade = GameManager.game_scene.available_upgrades[i]
+			popup_menu.add_item("%s (%d G)" % [upgrade.title, upgrade.cost], i)
+			popup_menu.set_item_tooltip(i, upgrade.description)
+
+	for i in GameManager.game_scene.available_upgrades.size():
+		var upgrade : Upgrade = GameManager.game_scene.available_upgrades[i]
+		popup_menu.set_item_disabled(i, GameManager.game_scene.gold < upgrade.cost)
 
 	if resource_to_display:
 		show_info(resource_to_display.get_title(), resource_to_display.get_image(), resource_to_display.get_description(), true)

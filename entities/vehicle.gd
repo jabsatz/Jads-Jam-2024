@@ -15,12 +15,12 @@ func look_to(direction: Vector2) -> void:
 func _process(delta):
 	$ProgressBar.value = resource.cargo_load
 
-func _mouse_enter() -> void:
-	if not GameManager.ui.info_is_pinned:
-		GameManager.ui.show_resource(resource)
+# func _mouse_enter() -> void:
+# 	if not GameManager.ui.info_is_pinned:
+# 		GameManager.ui.show_resource(resource)
 
 
-func _mouse_exit() -> void:
-	if not GameManager.ui.info_is_pinned:
-		GameManager.ui.hide_info()
+# func _mouse_exit() -> void:
+# 	if not GameManager.ui.info_is_pinned:
+# 		GameManager.ui.hide_info()
 
