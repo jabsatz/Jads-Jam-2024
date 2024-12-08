@@ -1,11 +1,22 @@
-[gd_scene load_steps=7 format=3 uid="uid://beq666c42styt"]
+[gd_scene load_steps=9 format=3 uid="uid://beq666c42styt"]
 
 [ext_resource type="Script" path="res://scenes/game.gd" id="1_5my1d"]
 [ext_resource type="PackedScene" uid="uid://ci58ssl7ormwt" path="res://scenes/ui.tscn" id="2_a1tr4"]
 [ext_resource type="PackedScene" uid="uid://bcomgaxf04hyg" path="res://entities/dragon.tscn" id="3_k5xyl"]
 [ext_resource type="Script" path="res://entities/camera.gd" id="4_5axjd"]
 [ext_resource type="Script" path="res://scenes/background.gd" id="5_ib7u4"]
-[ext_resource type="AudioStream" uid="uid://dmhaussc4j03l" path="res://assets/background.ogg" id="6_5cymj"]
+[ext_resource type="AudioStream" uid="uid://bd2g8ddvvewcs" path="res://assets/bg1intro.ogg" id="6_t8fo3"]
+[ext_resource type="AudioStream" uid="uid://bd4xebk7mv3sh" path="res://assets/bg1main.ogg" id="7_vqiac"]
+
+[sub_resource type="AudioStreamInteractive" id="AudioStreamInteractive_1xw01"]
+clip_count = 2
+clip_0/name = &"Bg 1 Intro"
+clip_0/stream = ExtResource("6_t8fo3")
+clip_0/auto_advance = 1
+clip_0/next_clip = 1
+clip_1/name = &"Bg 1 Main"
+clip_1/stream = ExtResource("7_vqiac")
+clip_1/auto_advance = 0
 
 [node name="Game" type="Node2D"]
 texture_filter = 1
@@ -42,9 +53,8 @@ color = Color(0.113257, 0.319902, 0.410156, 1)
 script = ExtResource("5_ib7u4")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("6_5cymj")
+stream = SubResource("AudioStreamInteractive_1xw01")
 volume_db = -4.16
 autoplay = true
-parameters/looping = true
 
 [connection signal="timeout" from="TickTimer" to="." method="_on_tick_timer_timeout"]
