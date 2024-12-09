@@ -24,7 +24,7 @@ const LEVEL_VALUES = [{
 	"speed": 100.0,
 	"loading_speed": 300.0,
 	"capacity": 2000.0,
-	"icon": preload("res://assets/cargo_ship.svg"),
+	"icon": preload("res://assets/cargo_rocket.svg"),
 }]
 
 @export var name:String

@@ -26,8 +26,8 @@ const BACKGROUND_COLOR : Array[Color] = [Color("#366947"), Color("1d5269"), Colo
 var MineScene : PackedScene = load("res://entities/mine.tscn")
 
 var level := GameManager.level
+var gold := GameManager.starting_gold
 
-var gold := 50000.0
 var mines : Array[Mine] = [
 	Mine.new(400.0, level, true),
 	Mine.new(450.0, level),
@@ -116,14 +116,16 @@ func upgrade_style():
 	GameManager.camera.move_enabled = false
 	dragon.upgrade()
 	SceneManager.reload_scene({ "pattern": "circle", "color": Color.WHITE, "invert_on_leave": false })
+	GameManager.starting_gold = gold
 	GameManager.level += 1
 
 func win_game():
 	GameManager.camera.center_on_position(dragon.position, 1.0)
 	await GameManager.camera.animation_complete
 	GameManager.camera.move_enabled = false
-	SceneManager.reload_scene({ "pattern": "circle", "color": Color.WHITE, "invert_on_leave": false })
-	GameManager.level += 1
+	SceneManager.change_scene("res://scenes/end_screen.tscn", { "pattern": "circle", "color": Color.WHITE, "invert_on_leave": false })
+	GameManager.starting_gold = 0.0
+	GameManager.level = 0
 
 func _on_tick_timer_timeout() -> void:
 	tick()

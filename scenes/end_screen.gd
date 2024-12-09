@@ -9,7 +9,6 @@ func _process(delta: float) -> void:
 	progress += delta * speed
 	scroll_container.scroll_vertical = floor(progress)
 	if scroll_container.scroll_vertical + 2 < progress:
-		GameManager.level = 0
 		SceneManager.change_scene("res://scenes/game.tscn")
 
 func _input(event: InputEvent) -> void:
