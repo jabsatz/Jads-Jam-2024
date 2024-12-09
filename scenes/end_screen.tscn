@@ -1,0 +1,111 @@
+[gd_scene load_steps=8 format=3 uid="uid://b4oio0pr35sp4"]
+
+[ext_resource type="Script" path="res://scenes/end_screen.gd" id="1_wyyga"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_oq1ps"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_k4j4m"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_plucb"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_6a5jy"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_xttyi"]
+
+[sub_resource type="Theme" id="Theme_jjphi"]
+VScrollBar/styles/grabber = SubResource("StyleBoxEmpty_oq1ps")
+VScrollBar/styles/grabber_highlight = SubResource("StyleBoxEmpty_k4j4m")
+VScrollBar/styles/grabber_pressed = SubResource("StyleBoxEmpty_plucb")
+VScrollBar/styles/scroll = SubResource("StyleBoxEmpty_6a5jy")
+VScrollBar/styles/scroll_focus = SubResource("StyleBoxEmpty_xttyi")
+
+[node name="EndScreen" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_jjphi")
+script = ExtResource("1_wyyga")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.0792195, 0.0410822, 0.128906, 1)
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 200
+theme_override_constants/margin_top = 0
+theme_override_constants/margin_right = 200
+theme_override_constants/margin_bottom = 0
+
+[node name="ScrollContainer" type="ScrollContainer" parent="MarginContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Spacer" type="Control" parent="MarginContainer/ScrollContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 650)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+text = "And so, The Dragon Magnate (formerly known as the Dragon Lord)
+purchased the entire planet.
+
+Tales were told for eons of his immense thirst for hoarding
+bigger and bigger amounts of gold.
+
+What does it even mean to purchase the planet?
+
+Perhaps it represents the whims of a
+guy who went in over his head
+and couldn't figure out how to finish
+his game.
+
+Perhaps he has now written himself in a corner
+and is now starting with the weird meta commentary.
+
+Now THAT'S a staple of lazy writing.
+
+We tired of this bit yet?"
+horizontal_alignment = 1
+
+[node name="Label2" type="Label" parent="MarginContainer/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 32
+text = "
+
+THANK YOU FOR PLAYING!"
+horizontal_alignment = 1
+
+[node name="Label3" type="Label" parent="MarginContainer/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 32
+text = "
+Special thanks to:
+matstress for the MatsCurs font
+isla and bulder for organizing the jam
+"
+horizontal_alignment = 1
+
+[node name="Spacer2" type="Control" parent="MarginContainer/ScrollContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 650)
+layout_mode = 2

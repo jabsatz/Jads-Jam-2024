@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://d4n1xbtt4jbof"
-path="res://.godot/imported/dragon_cigar_64.svg-c904e199b591282c499557de68c8a610.ctex"
+uid="uid://r6fh0ccyy4cf"
+path="res://.godot/imported/heaven_piercing_drill.svg-f90d2d9ecf8a920fb0695c9ca840b85b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/dragon_cigar_64.svg"
-dest_files=["res://.godot/imported/dragon_cigar_64.svg-c904e199b591282c499557de68c8a610.ctex"]
+source_file="res://assets/heaven_piercing_drill.svg"
+dest_files=["res://.godot/imported/heaven_piercing_drill.svg-f90d2d9ecf8a920fb0695c9ca840b85b.ctex"]
 
 [params]
 

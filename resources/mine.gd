@@ -1,34 +1,55 @@
 class_name Mine
 extends Resource
 
-var mine_sprite: Texture2D = load('res://assets/mine_64.svg')
-var inactive_mine_sprite: Texture2D = load('res://assets/mine_inactive_64.svg')
-var active := false
-var distance := 0.0
-var gold_yield := randf_range(8.0, 18.0)
+const SPRITES : Array[Texture2D] = [
+	preload('res://assets/mine.svg'),
+	preload('res://assets/mine_island.svg'),
+	preload('res://assets/mega_mine.svg'),
+	preload('res://assets/gold_asteroid.svg')
+]
+const INACTIVE_SPRITES : Array[Texture2D] = [
+	preload('res://assets/mine_inactive.svg'),
+	preload('res://assets/mine_island_inactive.svg'),
+	preload('res://assets/mega_mine_inactive.svg'),
+	preload('res://assets/gold_asteroid_inactive.svg')
+]
+const TITLES : Array[String] = ["Mine", "Mine island", "Mega Mine", "Gold Asteroid"]
+const LEVEL_MULTIPLIERS : Array[float] = [1.0, 5.0, 15.0, 50.0]
+
+var sprite: Texture2D
+var inactive_sprite: Texture2D
+var level : int
+var active : bool
+var distance : float
+var gold_yield : float
+var max_vehicles : int
+var max_workers : int
+
 var vehicles : Array[Vehicle] = []
-var max_vehicles := 3
 var workers : Array[Worker] = []
-var max_workers := 6
 var storage := 0.0
 var direction : Vector2 = Vector2(1,0).rotated(randf() * PI * 2.0)
 var node = null
 var road = null
 
-func _init(_distance: float = randf_range(300, 1200), _active: bool = false) -> void:
+func _init(_distance: float = randf_range(300, 1200), _level : int = 0, _active: bool = false) -> void:
 	active = _active
+	level = _level
 	distance = _distance
-	gold_yield = distance / 100.0 + 8.0
+	gold_yield = (distance / 100.0 + 8.0) * LEVEL_MULTIPLIERS[level]
 	max_vehicles = 2 + floor(distance / 450.0)
+	max_workers = 6
+	sprite = SPRITES[level]
+	inactive_sprite = INACTIVE_SPRITES[level]
 
 func get_road_cost():
 	return int(distance) * 5 
 
 func get_title():
-	return "Mine" if active else "Mine (Inactive)"
+	return TITLES[level] if active else "%s (Inactive)" % TITLES[level]
 
 func get_image():
-	return mine_sprite if active else inactive_mine_sprite
+	return sprite if active else inactive_sprite
 
 func get_description():
 	if active:

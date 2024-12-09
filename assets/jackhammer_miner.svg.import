@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ctda5qcsek586"
-path="res://.godot/imported/truck_16.svg-2ee831d81b716b0b8c4c62ce88178e0f.ctex"
+uid="uid://2gtpkjgmpc"
+path="res://.godot/imported/jackhammer_miner.svg-a248dbe7f3190bb308803cd0bbd7e44c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/truck_16.svg"
-dest_files=["res://.godot/imported/truck_16.svg-2ee831d81b716b0b8c4c62ce88178e0f.ctex"]
+source_file="res://assets/jackhammer_miner.svg"
+dest_files=["res://.godot/imported/jackhammer_miner.svg-a248dbe7f3190bb308803cd0bbd7e44c.ctex"]
 
 [params]
 

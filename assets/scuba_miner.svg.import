@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://qo8pgdkui2jo"
-path="res://.godot/imported/dragon_sunglasses_64.svg-797590968382208b0bb16dc0543c2331.ctex"
+uid="uid://dai8clhrhymke"
+path="res://.godot/imported/scuba_miner.svg-d5a4b443f38f0a25d7296d1f0a2c65c7.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/dragon_sunglasses_64.svg"
-dest_files=["res://.godot/imported/dragon_sunglasses_64.svg-797590968382208b0bb16dc0543c2331.ctex"]
+source_file="res://assets/scuba_miner.svg"
+dest_files=["res://.godot/imported/scuba_miner.svg-d5a4b443f38f0a25d7296d1f0a2c65c7.ctex"]
 
 [params]
 

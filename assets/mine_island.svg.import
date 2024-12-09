@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://nhxgn6mhirmf"
-path="res://.godot/imported/truck_64.svg-70f7a8ee37af8b75732af912e007d6cb.ctex"
+uid="uid://b76rlxhfrsgnn"
+path="res://.godot/imported/mine_island.svg-963deab54e4efdab14332e40ead6b252.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/truck_64.svg"
-dest_files=["res://.godot/imported/truck_64.svg-70f7a8ee37af8b75732af912e007d6cb.ctex"]
+source_file="res://assets/mine_island.svg"
+dest_files=["res://.godot/imported/mine_island.svg-963deab54e4efdab14332e40ead6b252.ctex"]
 
 [params]
 

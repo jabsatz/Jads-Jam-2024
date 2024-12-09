@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://pm8jdewi8ivj"
-path="res://.godot/imported/worker.svg-5f256df1068f02fe92b2cb4b6eca428e.ctex"
+uid="uid://d3m2ug2smt1an"
+path="res://.godot/imported/sea_line.svg-c7e03478c1329cb4b935c00838d65a65.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/worker.svg"
-dest_files=["res://.godot/imported/worker.svg-5f256df1068f02fe92b2cb4b6eca428e.ctex"]
+source_file="res://assets/sea_line.svg"
+dest_files=["res://.godot/imported/sea_line.svg-c7e03478c1329cb4b935c00838d65a65.ctex"]
 
 [params]
 

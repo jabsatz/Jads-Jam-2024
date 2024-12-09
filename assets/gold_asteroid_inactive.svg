@@ -2,13 +2,13 @@
 <!-- Created with Inkscape (http://www.inkscape.org/) -->
 
 <svg
-   width="64"
-   height="64"
-   viewBox="0 0 64 64"
+   width="512"
+   height="512"
+   viewBox="0 0 512 512"
    version="1.1"
    id="svg5"
    inkscape:version="1.4 (86a8ad7, 2024-10-11)"
-   sodipodi:docname="mine_64.svg"
+   sodipodi:docname="gold_asteroid_inactive.svg"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns="http://www.w3.org/2000/svg"
@@ -23,9 +23,9 @@
      inkscape:pagecheckerboard="0"
      inkscape:document-units="px"
      showgrid="true"
-     inkscape:zoom="4.8226891"
-     inkscape:cx="14.100017"
-     inkscape:cy="39.29343"
+     inkscape:zoom="1.2056723"
+     inkscape:cx="378.62693"
+     inkscape:cy="338.81512"
      inkscape:window-width="2560"
      inkscape:window-height="1377"
      inkscape:window-x="1912"
@@ -51,9 +51,20 @@
      inkscape:groupmode="layer"
      id="layer1">
     <path
-       style="fill:#b3b3b3;fill-opacity:1;stroke:#000000;stroke-width:4;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
-       d="M 3,62 H 61 C 61,62 67.212614,2 32,2 -3.2126145,2 3,62 3,62 Z"
-       id="path2328"
-       sodipodi:nodetypes="cczc" />
+       style="fill:#808080;stroke:#000000;stroke-width:16;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;stroke-dasharray:none;fill-opacity:1"
+       d="M 64,192 176,64 352,32 464,160 400,400 288,336 198.81787,464 48,400 112,272 Z"
+       id="path1" />
+    <path
+       style="fill:#4d4d4d;stroke:#000000;stroke-width:8;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;stroke-dasharray:none;fill-opacity:1"
+       d="m 160,160 -16,64 48,48 32,-57.34708 L 208,192 v -64 l -48,32"
+       id="path2" />
+    <path
+       style="fill:#4d4d4d;stroke:#000000;stroke-width:8;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;stroke-dasharray:none;fill-opacity:1"
+       d="M 377.10883,176 304,208 V 144 L 336,102.63459 360.68729,128 352,160 h 32 z"
+       id="path3" />
+    <path
+       style="fill:#4d4d4d;stroke:#000000;stroke-width:8;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;stroke-dasharray:none;fill-opacity:1"
+       d="m 288,288 48,32 72.19245,-56.66895 L 375.34938,208 345.43872,249.25544 281.51203,224 Z"
+       id="path4" />
   </g>
 </svg>

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://xbrdrkg2hi0e"
-path="res://.godot/imported/road_64.svg-ca5fab778666362963dee889e17bffca.ctex"
+uid="uid://p7i5ug76ncb4"
+path="res://.godot/imported/cargo_ship.svg-a3eced59187f4b058c5b3afde19aec6f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/road_64.svg"
-dest_files=["res://.godot/imported/road_64.svg-ca5fab778666362963dee889e17bffca.ctex"]
+source_file="res://assets/cargo_ship.svg"
+dest_files=["res://.godot/imported/cargo_ship.svg-a3eced59187f4b058c5b3afde19aec6f.ctex"]
 
 [params]
 

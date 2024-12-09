@@ -2,9 +2,9 @@
 
 [ext_resource type="Script" path="res://scenes/ui.gd" id="1_v2c5r"]
 [ext_resource type="Texture2D" uid="uid://bkqsfptsq42i5" path="res://assets/coin_64.svg" id="2_gjpbw"]
-[ext_resource type="Texture2D" uid="uid://dbr1eipr1im5i" path="res://assets/mine_64.svg" id="3_3skmg"]
-[ext_resource type="Texture2D" uid="uid://pm8jdewi8ivj" path="res://assets/worker.svg" id="3_eiycf"]
-[ext_resource type="Texture2D" uid="uid://nhxgn6mhirmf" path="res://assets/truck_64.svg" id="4_v73h0"]
+[ext_resource type="Texture2D" uid="uid://pm8jdewi8ivj" path="res://assets/miner.svg" id="3_eiycf"]
+[ext_resource type="Texture2D" uid="uid://cj13ny0pt8wv7" path="res://assets/truck.svg" id="4_m2kqd"]
+[ext_resource type="Texture2D" uid="uid://d3q1ogdb4uwr3" path="res://assets/mine.svg" id="5_crs1d"]
 
 [node name="UI" type="Control"]
 layout_mode = 3
@@ -57,6 +57,7 @@ item_count = 2
 popup/item_0/text = "Steel Pickaxes (20K G)"
 popup/item_0/id = 1
 popup/item_1/text = "Cool sunglasses (100K G)"
+popup/item_1/id = 1
 
 [node name="VSeparator2" type="VSeparator" parent="VBoxContainer/PanelContainer/HBoxContainer2"]
 layout_mode = 2
@@ -66,9 +67,11 @@ layout_mode = 2
 tooltip_text = "This is the amount of workers you currently have unassigned. Purchase more and assign them to mines to increase their gold production."
 theme_override_constants/separation = 10
 
-[node name="TextureRect" type="TextureRect" parent="VBoxContainer/PanelContainer/HBoxContainer2/HBoxContainer"]
+[node name="WorkerTextureRect" type="TextureRect" parent="VBoxContainer/PanelContainer/HBoxContainer2/HBoxContainer"]
+unique_name_in_owner = true
 layout_mode = 2
 texture = ExtResource("3_eiycf")
+expand_mode = 3
 
 [node name="WorkersLabel" type="Label" parent="VBoxContainer/PanelContainer/HBoxContainer2/HBoxContainer"]
 unique_name_in_owner = true
@@ -89,9 +92,11 @@ layout_mode = 2
 layout_mode = 2
 tooltip_text = "This is the amount of vehicles you currently have unassigned. Purchase more and assign them to mines to increase the rate at which your gold is delivered to you."
 
-[node name="TextureRect2" type="TextureRect" parent="VBoxContainer/PanelContainer/HBoxContainer2/HBoxContainer2"]
+[node name="VehicleTextureRect" type="TextureRect" parent="VBoxContainer/PanelContainer/HBoxContainer2/HBoxContainer2"]
+unique_name_in_owner = true
 layout_mode = 2
-texture = ExtResource("4_v73h0")
+texture = ExtResource("4_m2kqd")
+expand_mode = 3
 
 [node name="VehiclesLabel" type="Label" parent="VBoxContainer/PanelContainer/HBoxContainer2/HBoxContainer2"]
 unique_name_in_owner = true
@@ -137,7 +142,7 @@ text = "Information"
 unique_name_in_owner = true
 custom_minimum_size = Vector2(0, 150)
 layout_mode = 2
-texture = ExtResource("3_3skmg")
+texture = ExtResource("5_crs1d")
 expand_mode = 1
 stretch_mode = 5
 

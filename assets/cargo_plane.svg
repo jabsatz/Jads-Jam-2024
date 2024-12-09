@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="512"
+   height="512"
+   viewBox="0 0 512 512"
+   version="1.1"
+   id="svg5"
+   inkscape:version="1.4 (86a8ad7, 2024-10-11)"
+   sodipodi:docname="cargo_plane.svg"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview7"
+     pagecolor="#505050"
+     bordercolor="#eeeeee"
+     borderopacity="1"
+     inkscape:pageshadow="0"
+     inkscape:pageopacity="0"
+     inkscape:pagecheckerboard="0"
+     inkscape:document-units="px"
+     showgrid="true"
+     inkscape:zoom="0.85253905"
+     inkscape:cx="204.68271"
+     inkscape:cy="311.42268"
+     inkscape:window-width="2560"
+     inkscape:window-height="1377"
+     inkscape:window-x="1912"
+     inkscape:window-y="-8"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="layer1"
+     inkscape:showpageshadow="0"
+     inkscape:deskcolor="#d1d1d1">
+    <inkscape:grid
+       type="xygrid"
+       id="grid950"
+       spacingx="1"
+       empspacing="16"
+       originx="0"
+       originy="0"
+       spacingy="1"
+       units="px" />
+  </sodipodi:namedview>
+  <defs
+     id="defs2" />
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <path
+       style="fill:#ffd500;fill-opacity:1;stroke:#000000;stroke-width:16;stroke-linecap:butt;stroke-linejoin:miter;stroke-dasharray:none;stroke-opacity:1"
+       d="m 16,80 h 64 l 32,96 h 272 c 0,0 117.4251,62.27087 112,112 -5.4251,49.72913 -64,48 -64,48 H 128 L 96,240 H 64 Z"
+       id="path1"
+       sodipodi:nodetypes="cccczccccc" />
+    <path
+       style="fill:#ffd500;fill-opacity:1;stroke:#000000;stroke-width:16;stroke-linecap:butt;stroke-linejoin:miter;stroke-dasharray:none;stroke-opacity:1"
+       d="m 240,304 -64,80 h 48 l 128,-80 z"
+       id="path2"
+       sodipodi:nodetypes="ccccc" />
+    <path
+       style="fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 432,208 h -80 v 64 h 139.37062 z"
+       id="path4"
+       sodipodi:nodetypes="ccccc" />
+    <rect
+       style="fill:#000000;fill-opacity:1;stroke:none;stroke-width:16;stroke-linecap:square;stroke-dasharray:none"
+       id="rect4"
+       width="32"
+       height="64"
+       x="272"
+       y="208" />
+    <rect
+       style="fill:#000000;fill-opacity:1;stroke:none;stroke-width:16;stroke-linecap:square;stroke-dasharray:none"
+       id="rect5"
+       width="32"
+       height="64"
+       x="208"
+       y="208" />
+    <rect
+       style="fill:#000000;fill-opacity:1;stroke:none;stroke-width:16;stroke-linecap:square;stroke-dasharray:none"
+       id="rect6"
+       width="32"
+       height="64"
+       x="144"
+       y="208" />
+  </g>
+</svg>

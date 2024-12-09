@@ -1,7 +1,8 @@
 extends Line2D
 
+const TEXTURES = [preload("res://assets/road_line.svg"), preload("res://assets/sea_line.svg"), preload("res://assets/sea_line.svg"), preload("res://assets/sea_line.svg")]
 var VehicleScene : PackedScene = load("res://entities/vehicle.tscn")
-var RoadIcon = load("res://assets/road_64.svg")
+var RoadIcon = load("res://assets/road.svg")
 
 var mine : Mine
 var start : Vector2
@@ -12,6 +13,7 @@ func setup(_mine: Mine, _start: Vector2, _end: Vector2) -> void:
 	mine = _mine
 	start = _start
 	end = _end
+	texture = TEXTURES[GameManager.level]
 	add_point(start)
 	add_point(end)
 	path = Path2D.new()

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b826lk1r0onwg"
-path="res://.godot/imported/dragon_tophat_64.svg-8fd4a3b877d605d8981f14d4acb6a676.ctex"
+uid="uid://b4vn0f603x33o"
+path="res://.godot/imported/mega_mine_inactive.svg-dbda04dd62240496f73c4366d4f4a45b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/dragon_tophat_64.svg"
-dest_files=["res://.godot/imported/dragon_tophat_64.svg-8fd4a3b877d605d8981f14d4acb6a676.ctex"]
+source_file="res://assets/mega_mine_inactive.svg"
+dest_files=["res://.godot/imported/mega_mine_inactive.svg-dbda04dd62240496f73c4366d4f4a45b.ctex"]
 
 [params]
 

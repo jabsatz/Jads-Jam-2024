@@ -1,23 +1,39 @@
 extends Area2D
 
-var dragon_textures = [
-	load("res://assets/dragon.svg"),
-	load("res://assets/dragon_sunglasses.svg"),
-	load("res://assets/dragon_cigar.svg"),
-	load("res://assets/dragon_tophat.svg")
+var values = [
+	{
+		"title": "Dragon Lord",
+		"icon": load("res://assets/dragon.svg"),
+		"description": "Dragons love hoarding gold and treasure. Keep a steady flow to stay happy!"
+	},
+	{
+		"title": "Cool Dragon Lord",
+		"icon": load("res://assets/dragon_sunglasses.svg"),
+		"description": "You never looked cooler, imagine all the cool stuff you'll get next!"
+	},
+	{
+		"title": "Wealthy Dragon Lord",
+		"icon": load("res://assets/dragon_cigar.svg"),
+		"description": "Now that you've had a taste for riches, this door cannot be closed..."
+	},
+	{
+		"title": "The Dragon Magnate",
+		"icon": load("res://assets/dragon_tophat.svg"),
+		"description": "Space is the final frontier. Your empire must continue it's growth."
+	},
 ]
 
-@export_range(0, 3, 1) var level := 0
 
 func _ready():
-	$Sprite2D.texture = dragon_textures[level]
+	$Sprite2D.texture = values[GameManager.level]["icon"]
+
 
 func _mouse_enter() -> void:
 	if not GameManager.ui.info_is_pinned:
 		GameManager.ui.show_info(
-			"Dragon Lord (You)",
-			dragon_textures[level],
-			"Dragons love hoarding gold and treasure. Keep a steady flow to stay happy!"
+			"%s (You)" % values[GameManager.level]["title"],
+			values[GameManager.level]["icon"],
+			values[GameManager.level]["description"]
 		)
 
 
@@ -36,5 +52,4 @@ func _input_event(viewport: Viewport, event: InputEvent, shape_idx: int) -> void
 
 
 func upgrade():
-	level += 1
-	$Sprite2D.texture = dragon_textures[level]
+	$Sprite2D.texture = values[GameManager.level + 1]["icon"]

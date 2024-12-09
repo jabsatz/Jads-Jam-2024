@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="512"
+   height="512"
+   viewBox="0 0 512 512"
+   version="1.1"
+   id="svg5"
+   inkscape:version="1.4 (86a8ad7, 2024-10-11)"
+   sodipodi:docname="heaven_piercing_drill.svg"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview7"
+     pagecolor="#505050"
+     bordercolor="#eeeeee"
+     borderopacity="1"
+     inkscape:pageshadow="0"
+     inkscape:pageopacity="0"
+     inkscape:pagecheckerboard="0"
+     inkscape:document-units="px"
+     showgrid="true"
+     inkscape:zoom="1.2056723"
+     inkscape:cx="275.77975"
+     inkscape:cy="309.78567"
+     inkscape:window-width="2560"
+     inkscape:window-height="1377"
+     inkscape:window-x="1912"
+     inkscape:window-y="-8"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="layer1"
+     inkscape:showpageshadow="0"
+     inkscape:deskcolor="#d1d1d1">
+    <inkscape:grid
+       type="xygrid"
+       id="grid950"
+       spacingx="1"
+       empspacing="16"
+       originx="0"
+       originy="0"
+       spacingy="1"
+       units="px" />
+  </sodipodi:namedview>
+  <defs
+     id="defs2">
+    <linearGradient
+       id="linearGradient2"
+       inkscape:collect="always">
+      <stop
+         style="stop-color:#42a226;stop-opacity:1;"
+         offset="0.27444795"
+         id="stop2" />
+      <stop
+         style="stop-color:#ffd500;stop-opacity:1;"
+         offset="0.48895895"
+         id="stop3" />
+    </linearGradient>
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient2"
+       id="linearGradient3"
+       x1="256"
+       y1="488.30463"
+       x2="256"
+       y2="17.092224"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="matrix(0.99999999,0,0,-1.0000005,1.4242603e-6,504.00012)" />
+  </defs>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <path
+       style="fill:url(#linearGradient3);stroke:#000000;stroke-width:16;stroke-linecap:butt;stroke-linejoin:miter;stroke-dasharray:none;stroke-opacity:1"
+       d="M 32.000002,456.0001 C 181.33333,498.66679 330.66667,498.66679 480,456.0001 L 256,23.999901 Z"
+       id="path1"
+       sodipodi:nodetypes="cccc" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:8;stroke-linecap:butt;stroke-linejoin:miter;stroke-dasharray:none;stroke-opacity:1"
+       d="M 38.121422,440.00009 C 159.40095,397.78049 307.67373,403.54545 453.95328,405.76712 L 416,344.00005 C 256,338.10466 138.66667,354.10467 64,392.00007 l 48,-80.00004 C 202.11855,282.1018 292.74665,280.73396 383.19505,269.30475 L 352,215.99999 C 282.73733,225.50544 214.15715,223.79456 144,248 l 32,-64.00003 c 50.62641,-26.13305 96.14807,-22.2053 144,-32.00001 l -23.39165,-49.68392 c -29.99673,7.61649 -41.975,1.21251 -95.14393,26.85967 L 226.48729,80.917301 C 240.87622,67.137651 256.04712,58.831861 272,55.999921"
+       id="path2"
+       sodipodi:nodetypes="cccccccccccccc" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:16;stroke-linecap:butt;stroke-linejoin:miter;stroke-dasharray:none;stroke-opacity:1"
+       d="M 32.000002,456.0001 C 181.33333,434.66676 330.66667,434.66676 480,456.0001"
+       id="path3"
+       sodipodi:nodetypes="cc" />
+  </g>
+</svg>

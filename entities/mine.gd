@@ -1,8 +1,5 @@
 extends Area2D
 
-var mine_sprite: Texture2D = load('res://assets/mine_64.svg')
-var inactive_mine_sprite: Texture2D = load('res://assets/mine_inactive_64.svg')
-
 var mine: Mine
 var RoadLine: PackedScene = load("res://entities/road_line.tscn")
 
@@ -16,10 +13,10 @@ func setup(_mine):
 
 func _process(delta):
 	if mine.active:
-		$Sprite2D.texture = mine_sprite
-		$Label.text = "%d" % mine.storage
+		$Sprite2D.texture = mine.get_image()
+		$Label.text = Utils.format_gold(mine.storage)
 	if not mine.active:
-		$Sprite2D.texture = inactive_mine_sprite
+		$Sprite2D.texture = mine.get_image()
 		$Label.text = ""
 
 

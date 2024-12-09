@@ -3,8 +3,10 @@ extends Control
 @onready var gold_label: Label = %GoldLabel
 @onready var workers_label : Label = %WorkersLabel
 @onready var worker_button : Button = %WorkerButton
+@onready var worker_texture_rect : TextureRect = %WorkerTextureRect
 @onready var vehicles_label : Label = %VehiclesLabel
 @onready var vehicle_button : Button = %VehicleButton
+@onready var vehicle_texture_rect : TextureRect = %VehicleTextureRect
 
 @onready var info_container : Control = %InfoContainer
 @onready var info_title_label : Label = %InfoTitleLabel
@@ -24,6 +26,8 @@ func _ready():
 	worker_button.pressed.connect(buy_worker)
 	vehicle_button.pressed.connect(buy_vehicle)
 	popup_menu.id_pressed.connect(on_upgrade_click)
+	worker_texture_rect.texture = Worker.new(GameManager.level).icon
+	vehicle_texture_rect.texture = Vehicle.new(GameManager.level).icon
 
 func buy_worker():
 	GameManager.game_scene.buy_worker()
@@ -35,19 +39,19 @@ func on_upgrade_click(i: int):
 	GameManager.game_scene.execute_upgrade(i)
 
 func _process(_delta: float) -> void:
-	gold_label.text = "%d" % GameManager.game_scene.gold
+	gold_label.text = Utils.format_money(GameManager.game_scene.gold)
 	workers_label.text = "%d" % GameManager.game_scene.workers.size()
-	worker_button.text = "%dG" % GameManager.game_scene.worker_price
+	worker_button.text = Utils.format_gold(GameManager.game_scene.worker_price)
 	worker_button.disabled = GameManager.game_scene.gold < GameManager.game_scene.worker_price 
 	vehicles_label.text = "%d" % GameManager.game_scene.vehicles.size()
-	vehicle_button.text = "%dG" % GameManager.game_scene.vehicle_price
+	vehicle_button.text = Utils.format_gold(GameManager.game_scene.vehicle_price)
 	vehicle_button.disabled = GameManager.game_scene.gold < GameManager.game_scene.vehicle_price
 
 	if GameManager.game_scene.available_upgrades.size() != popup_menu.get_child_count():
 		popup_menu.clear()
 		for i in GameManager.game_scene.available_upgrades.size():
 			var upgrade : Upgrade = GameManager.game_scene.available_upgrades[i]
-			popup_menu.add_item("%s (%d G)" % [upgrade.title, upgrade.cost], i)
+			popup_menu.add_item("%s (%s)" % [upgrade.title, Utils.format_gold(upgrade.cost)], i)
 			popup_menu.set_item_tooltip(i, upgrade.description)
 
 	for i in GameManager.game_scene.available_upgrades.size():
