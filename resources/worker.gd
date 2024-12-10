@@ -25,9 +25,21 @@ const LEVEL_VALUES = [{
 var progress: float = 0.0
 var level: int
 
-func _init(_level) -> void:
+func _init(_level: int, mult: float = 1.0) -> void:
 	level = _level
 	var values = LEVEL_VALUES[level]
 	name = values["name"]
-	speed = values["speed"]
+	speed = values["speed"] * mult
 	icon = values["icon"]
+
+func get_title():
+	return name
+
+func get_image():
+	return icon
+
+func get_description():
+	var description = """Mines gold from {mining_place}.
+
+Mining speed: [b]{speed}[/b]"""
+	return description.format({ "mining_place": "mines" if level < 3 else "asteroids", "speed": speed })

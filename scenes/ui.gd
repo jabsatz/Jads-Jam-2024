@@ -28,6 +28,10 @@ func _ready():
 	popup_menu.id_pressed.connect(on_upgrade_click)
 	worker_texture_rect.texture = Worker.new(GameManager.level).icon
 	vehicle_texture_rect.texture = Vehicle.new(GameManager.level).icon
+	worker_texture_rect.mouse_entered.connect(show_worker_info)
+	vehicle_texture_rect.mouse_entered.connect(show_vehicle_info)
+	worker_texture_rect.mouse_exited.connect(hide_info)
+	vehicle_texture_rect.mouse_exited.connect(hide_info)
 
 func buy_worker():
 	GameManager.game_scene.buy_worker()
@@ -37,6 +41,14 @@ func buy_vehicle():
 
 func on_upgrade_click(i: int):
 	GameManager.game_scene.execute_upgrade(i)
+
+func show_worker_info():
+	if not info_is_pinned:
+		show_resource(Worker.new(GameManager.level))
+
+func show_vehicle_info():
+	if not info_is_pinned:
+		show_resource(Vehicle.new(GameManager.level))
 
 func _process(_delta: float) -> void:
 	gold_label.text = Utils.format_money(GameManager.game_scene.gold)

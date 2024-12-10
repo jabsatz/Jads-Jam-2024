@@ -24,6 +24,7 @@ var distance : float
 var gold_yield : float
 var max_vehicles : int
 var max_workers : int
+var cost : int
 
 var vehicles : Array[Vehicle] = []
 var workers : Array[Worker] = []
@@ -37,13 +38,14 @@ func _init(_distance: float = randf_range(300, 1200), _level : int = 0, _active:
 	level = _level
 	distance = _distance
 	gold_yield = (distance / 100.0 + 8.0) * LEVEL_MULTIPLIERS[level]
-	max_vehicles = 2 + floor(distance / 450.0)
+	max_vehicles = 2 + floor(distance / 450.0) + floor(level / 2.0)
 	max_workers = 6
 	sprite = SPRITES[level]
 	inactive_sprite = INACTIVE_SPRITES[level]
+	cost = int(distance) * 5 * int(LEVEL_MULTIPLIERS[level])
 
 func get_road_cost():
-	return int(distance) * 5 
+	return cost 
 
 func get_title():
 	return TITLES[level] if active else "%s (Inactive)" % TITLES[level]
@@ -76,7 +78,7 @@ Max vehicles: [b]{max_vehicles}[/b]"""
 func get_action_buttons():
 	if not active:
 		return [{
-			"title": "Build road (%dG)" % get_road_cost(),
+			"title": "%s (%s)" % ["Build road" if level == 0 else "Secure route", Utils.format_gold(get_road_cost())],
 			"action": func(): node.build_road(),
 			"disabled": GameManager.game_scene.gold < get_road_cost()
 		}]

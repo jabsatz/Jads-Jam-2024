@@ -16,14 +16,14 @@ const LEVEL_VALUES = [{
 },{
 	"name": "Plane",
 	"speed": 100.0,
-	"loading_speed": 200.0,
-	"capacity": 1500.0,
+	"loading_speed": 2000.0,
+	"capacity": 15000.0,
 	"icon": preload("res://assets/cargo_plane.svg"),
 },{
 	"name": "Rocket",
 	"speed": 100.0,
-	"loading_speed": 300.0,
-	"capacity": 2000.0,
+	"loading_speed": 30000.0,
+	"capacity": 200000.0,
 	"icon": preload("res://assets/cargo_rocket.svg"),
 }]
 
@@ -53,22 +53,10 @@ func get_title():
 func get_image():
 	return icon
 
-func get_user_friendly_status():
-	match status:
-		"going":
-			return "Travelling to mine"
-		"loading":
-			return "Loading gold"
-		"returning":
-			return "Returning to base"
-		"unloading":
-			return "Unloading gold"
-
 func get_description():
 	var description = """Brings gold back from mines.
 
-Status: [b]{status}[/b]
-Cargo: [b]{cargo_load}/{capacity}[/b]
+Capacity: [b]{capacity}[/b]
 Road speed: [b]{speed}km/h[/b]
-Loading speed: [b]{loading_speed}G per tick[/b]"""
-	return description.format({ "status": get_user_friendly_status(), "cargo_load": "%d" % cargo_load, "capacity": "%d" % capacity, "speed": speed, "loading_speed": loading_speed })
+Loading speed: [b]{loading_speed} per tick[/b]"""
+	return description.format({ "capacity": "%d" % capacity, "speed": speed, "loading_speed": Utils.format_gold(loading_speed) })
