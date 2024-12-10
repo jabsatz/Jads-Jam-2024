@@ -1,7 +1,7 @@
 extends Object
 class_name Utils
 
-static func format_money(money: float) -> String:
+static func format_amount(money: float) -> String:
 	if money >= pow(10, 12):
 		return "%.1fT" % (money / pow(10, 12))
 	elif money >= pow(10, 9):
@@ -14,4 +14,4 @@ static func format_money(money: float) -> String:
 		return "%d" % money
 
 static func format_gold(gold: float) -> String:
-	return "%s G" % format_money(gold)
+	return "%s G" % format_amount(gold)

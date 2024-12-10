@@ -3,7 +3,7 @@ extends Resource
 
 const LEVEL_VALUES = [{
 	"name": "Miner",
-	"speed": 0.2,
+	"speed": 0.25,
 	"icon": preload("res://assets/miner.svg"),
 }, {
 	"name": "Scuba miner",
@@ -22,7 +22,6 @@ const LEVEL_VALUES = [{
 @export var name:String
 @export var speed:float
 @export var icon:Texture2D
-var progress: float = 0.0
 var level: int
 
 func _init(_level: int, mult: float = 1.0) -> void:
@@ -41,5 +40,5 @@ func get_image():
 func get_description():
 	var description = """Mines gold from {mining_place}.
 
-Mining speed: [b]{speed}[/b]"""
+Mining speed: [b]{speed} * {mining_place} yield per tick[/b]"""
 	return description.format({ "mining_place": "mines" if level < 3 else "asteroids", "speed": speed })

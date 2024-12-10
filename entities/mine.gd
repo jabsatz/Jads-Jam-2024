@@ -25,10 +25,7 @@ func process_mine():
 		return
 
 	for worker in mine.workers:
-		worker.progress += worker.speed
-		if worker.progress >= 1.0:
-			worker.progress -= 1.0
-			mine.storage += mine.gold_yield
+		mine.storage += mine.gold_yield * worker.speed
 
 	for vehicle in mine.vehicles:
 		match vehicle.status:
@@ -109,6 +106,7 @@ func unassign_worker() -> void:
 func unassign_vehicle() -> void:
 	if not mine.active or mine.vehicles.size() == 0:
 		return
+	mine.vehicles.sort_custom(func(a,b): return a.cargo_load > b.cargo_load)
 	var vehicle = mine.vehicles.pop_back()
 	mine.road.remove_vehicle(vehicle)
 	GameManager.game_scene.vehicles.append(vehicle)

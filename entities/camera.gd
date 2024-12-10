@@ -5,8 +5,8 @@ signal animation_complete
 @export var SPEED := 20.0
 @export var ZOOM_SPEED := 30.0
 @export var ZOOM_MARGIN := 0.1
-@export var ZOOM_MIN := 0.5
-@export var ZOOM_MAX := 3.0
+@export var ZOOM_MIN := 0.25
+@export var ZOOM_MAX := 4.0
 
 var zoom_factor := 1.0
 var zoom_pos := Vector2()

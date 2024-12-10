@@ -25,18 +25,19 @@ var gold_yield : float
 var max_vehicles : int
 var max_workers : int
 var cost : int
+var direction : Vector2
 
 var vehicles : Array[Vehicle] = []
 var workers : Array[Worker] = []
 var storage := 0.0
-var direction : Vector2 = Vector2(1,0).rotated(randf() * PI * 2.0)
 var node = null
 var road = null
 
-func _init(_distance: float = randf_range(300, 1200), _level : int = 0, _active: bool = false) -> void:
+func _init(_distance: float = randf_range(300, 1200), _level : int = 0, _direction: Vector2 = Vector2(1,0).rotated(randf() * PI * 2.0), _active: bool = false) -> void:
 	active = _active
 	level = _level
 	distance = _distance
+	direction = _direction
 	gold_yield = (distance / 100.0 + 8.0) * LEVEL_MULTIPLIERS[level]
 	max_vehicles = 2 + floor(distance / 450.0) + floor(level / 2.0)
 	max_workers = 6
@@ -53,27 +54,31 @@ func get_title():
 func get_image():
 	return sprite if active else inactive_sprite
 
+func get_user_friendly_distance():
+	var level_multipliers := [1, 5, 10, 1000]
+	return Utils.format_amount(distance * level_multipliers[level])
+
 func get_description():
 	if active:
 		var description = """Produces gold based on amount of workers. Transportation is required to carry the gold.
 
 Yield: [b]{gold_yield}[/b] (producing [b]{production}[/b] per tick)
-Distance to base: [b]{distance}km[/b]
+Distance to base: [b]{distance} km[/b]
 Workers active: [b]{workers}/{max_workers}[/b]
 Vehicles assigned: [b]{vehicles}/{max_vehicles}[/b]"""
 
 		var production = workers.reduce(func(acc, w): return acc + w.speed, 0.0) * gold_yield
 
-		return description.format({ "gold_yield": "%.2f" % gold_yield, "production": "%.2f" % production, "distance": "%d" % distance, "workers": workers.size(), "max_workers": max_workers, "vehicles": vehicles.size(), "max_vehicles": max_vehicles })
+		return description.format({ "gold_yield": Utils.format_gold(gold_yield), "production": Utils.format_gold(production), "distance": get_user_friendly_distance(), "workers": workers.size(), "max_workers": max_workers, "vehicles": vehicles.size(), "max_vehicles": max_vehicles })
 
 	else:
 		var description = """Will produce gold once a road to it is built and workers are assigned.
 
 Yield: [b]{gold_yield}[/b]
-Distance to base: [b]{distance}km[/b]
+Distance to base: [b]{distance} km[/b]
 Max workers: [b]{max_workers}[/b]
 Max vehicles: [b]{max_vehicles}[/b]"""
-		return description.format({ "gold_yield": "%.2f" % gold_yield, "distance": "%d" % distance, "max_workers": max_workers, "max_vehicles": max_vehicles })
+		return description.format({ "gold_yield": Utils.format_gold(gold_yield), "distance": get_user_friendly_distance(), "max_workers": max_workers, "max_vehicles": max_vehicles })
 
 func get_action_buttons():
 	if not active:

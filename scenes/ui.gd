@@ -44,14 +44,14 @@ func on_upgrade_click(i: int):
 
 func show_worker_info():
 	if not info_is_pinned:
-		show_resource(Worker.new(GameManager.level))
+		show_resource(Worker.new(GameManager.level, GameManager.game_scene.worker_multiplier))
 
 func show_vehicle_info():
 	if not info_is_pinned:
-		show_resource(Vehicle.new(GameManager.level))
+		show_resource(Vehicle.new(GameManager.level, GameManager.game_scene.vehicle_multiplier))
 
 func _process(_delta: float) -> void:
-	gold_label.text = Utils.format_money(GameManager.game_scene.gold)
+	gold_label.text = Utils.format_amount(GameManager.game_scene.gold)
 	workers_label.text = "%d" % GameManager.game_scene.workers.size()
 	worker_button.text = Utils.format_gold(GameManager.game_scene.worker_price)
 	worker_button.disabled = GameManager.game_scene.gold < GameManager.game_scene.worker_price 

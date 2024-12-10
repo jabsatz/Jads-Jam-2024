@@ -22,8 +22,8 @@ const LEVEL_VALUES = [{
 },{
 	"name": "Rocket",
 	"speed": 100.0,
-	"loading_speed": 30000.0,
-	"capacity": 200000.0,
+	"loading_speed": 7500.0,
+	"capacity": 75000.0,
 	"icon": preload("res://assets/cargo_rocket.svg"),
 }]
 
@@ -53,10 +53,14 @@ func get_title():
 func get_image():
 	return icon
 
+func get_user_friendly_speed():
+	var level_multipliers := [1, 5, 10, 1000]
+	return Utils.format_amount(speed * level_multipliers[level])
+
 func get_description():
 	var description = """Brings gold back from mines.
 
 Capacity: [b]{capacity}[/b]
 Road speed: [b]{speed}km/h[/b]
 Loading speed: [b]{loading_speed} per tick[/b]"""
-	return description.format({ "capacity": "%d" % capacity, "speed": speed, "loading_speed": Utils.format_gold(loading_speed) })
+	return description.format({ "capacity": Utils.format_gold(capacity), "speed": get_user_friendly_speed(), "loading_speed": Utils.format_gold(loading_speed) })
